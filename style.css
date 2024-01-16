@@ -1,0 +1,166 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 500%;
+  color: rgb(144, 166, 199);
+  text-shadow: 5px 5px 6px #ffffff;
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0); /* Fully transparent */
+  }
+  50% {
+    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0.7); /* Semi-transparent */
+  }
+  100% {
+    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0); /* Fully transparent */
+  }
+}
+.form_container {
+  font-family: "Dancing Script", cursive;
+  color: rgb(144, 166, 199);
+  font-size: 200%;
+}
+
+button {
+  --color: #96a0bd;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  cursor: pointer;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: #fff;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+button:active:before {
+  background: #96a0bd;
+  transition: background 0s;
+}
+
+body {
+  margin-left: 50px;
+  background-image: url(assets/storm.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 400%;
+  color: aliceblue;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.info_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 50px;
+}
+
+.box {
+  font-family: "Dancing Script", cursive;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: rgb(3, 23, 41);
+  background-color: rgb(144, 166, 199);
+  opacity: 0.75;
+}/*# sourceMappingURL=style.css.map */
