@@ -1,3 +1,11 @@
+// Déclarer les tableaux à un niveau supérieur
+let temperatureData = [];
+let humidityData = [];
+let windData = [];
+
+// Importer la fonction createTemperatureChart depuis le fichier graphic.js
+import { createTemperatureChart } from '../js/graphic.js';
+
 // Clé API OpenWeatherMap
 const apiKey = "e712e2a639cd686c277fc5416e3d6590";
 
@@ -76,18 +84,26 @@ function apiCall(city) {
                 document.querySelector(`#humidity${j}`).innerHTML = "<i class='fa-solid fa-droplet'></i>" + data.list[i].main.humidity + "%";
                 document.querySelector(`#wind${j}`).innerHTML = "<i class='fa-solid fa-wind'></i>" + data.list[i].wind.speed + "km/h";
 
+                // Ajouter les données à chaque tableau
+                temperatureData.push(data.list[i].main.temp);
+                humidityData.push(data.list[i].main.humidity);
+                windData.push(data.list[i].wind.speed);
+
                 // Ajouter la température à la somme
                 sommeTemperature += data.list[i].main.temp;
             }
+
+            // Appeler la fonction pour créer le graphique
+            createTemperatureChart(temperatureData, humidityData, windData);
 
             // Calculer la moyenne des températures
             const moyenneTemperature = sommeTemperature / joursAafficher;
 
             // Changer le fond en fonction de la moyenne des températures
             if (moyenneTemperature >= 0) {
-                document.body.style.backgroundImage = "url('assets/test1.jpg')"; // Remplacez 'background1.jpg' par le chemin de votre image
+                document.body.style.backgroundImage = "url('assets/three.jpg')"; // Remplacez 'background1.jpg' par le chemin de votre image
             } else {
-                document.body.style.backgroundImage = "url('assets/test2.1.jpg')"; // Remplacez 'background2.jpg' par le chemin de votre image
+                document.body.style.backgroundImage = "url('assets/snow2.jpg')"; // Remplacez 'background2.jpg' par le chemin de votre image
             }
 
         })
@@ -117,7 +133,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Appeler initialement la fonction API avec une ville par défaut (Erquelinnes)
 apiCall("Erquelinnes");
-
-
-
-

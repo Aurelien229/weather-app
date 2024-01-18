@@ -1,133 +1,146 @@
 @import 'reset';
-@mixin media($screen){
-    @media(max-width:$screen){ 
-        @content;
-    }
+
+@mixin media($screen) {
+  @media(max-width:$screen) {
+    @content;
+  }
 }
 
-$mobile:"475px";
+$mobile: "475px";
 $font-family: 'Dancing Script', cursive;
 
-h1 {
-    margin-top: 50px;
-    text-align: center;
-    font-family: $font-family;
-    font-size: 500%;
-    color: #d95535;
-    text-shadow: 5px 5px 6px rgb(3, 23, 41);
-    animation: animate 3s linear infinite;
+header {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  gap: 50px;
 }
 
-@keyframes animate {
-  0% {
-    text-shadow: 5px 5px 6px rgb(3, 23, 41, 0); /* Fully transparent */
-  }
+.logo {
+  height: 150px;
+  width: 150px;
+  color: rgb(3, 23, 41);
+}
 
-  50% {
-    text-shadow: 5px 5px 6px rgb(3, 23, 41, 0.7); /* Semi-transparent */
-  }
+h1 {
 
-  100% {
-    text-shadow: 5px 5px 6px rgb(3, 23, 41, 0); /* Fully transparent */
-  }
+  text-align: center;
+  font-family: $font-family;
+  font-size: 800%;
+  color: rgb(3, 23, 41);
+  text-shadow: 5px 5px 6px rgb(255, 255, 255);
 }
 
 
 .form_container {
-    color: rgb(3, 23, 41);
-    text-align: center;
-    padding-top: 10px;
-    max-width: 300px;
-    background-color:  rgb(144, 166, 199, 0.85); 
-    font-family: $font-family;
-    font-size: 200%;
-    border-radius: 15px;
+  color: rgb(3, 23, 41);
+  text-align: center;
+  padding-top: 10px;
+  max-width: 300px;
+  background-color: rgb(144, 166, 199);
+  font-family: $font-family;
+  font-size: 200%;
+  border-radius: 15px;
 }
 
 button {
-    //--color: #d95535;
-    font-family: inherit;
-    display: inline-block;
-    width: 8em;
-    height: 2.6em;
-    line-height: 2.5em;
-    margin: 20px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid var(--color);
-    transition: color .5s;
-    z-index: 1;
-    font-size: 17px;
-    border-radius: 6px;
-    font-weight: 500;
-    color: var(--color);
-    cursor: pointer;
-   }
-   
-   button:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background: var(--color);
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
-   }
-   
-   button:hover {
-    color: #fff;
-   }
-   
-   button:before {
-    top: 100%;
-    left: 100%;
-    transition: all .7s;
-   }
-   
-   button:hover:before {
-    top: -30px;
-    left: -30px;
-   }
-   
-   button:active:before {
-    background: #d95535;
-    transition: background 0s;
-   }
+  font-family: $font-family;
+  color: rgb(3, 23, 41);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 3px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-body { 
-    margin-left: 50px;
-    background-repeat: no-repeat;
-    min-height: 100vh; 
+button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: rgb(144, 166, 199);
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: rgb(144, 166, 199);
+  transition: 0.5s;
+}
+
+button:hover::before,
+button:hover::after {
+  transform: scale(0)
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+body {
+  margin-left: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 
 }
+
 h2 {
-    font-family: $font-family;
-    font-size: 600%;
-    color: rgb(3, 23, 41);
-    text-shadow: 5px 5px 6px #ffffff;
-    text-align: center;
-    margin-bottom: 50px;
+  font-family: $font-family;
+  font-size: 600%;
+  color: rgb(3, 23, 41);
+  text-shadow: 5px 5px 6px #ffffff;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .info_container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        gap: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 50px;
 }
 
-.box { 
-    font-family: $font-family;
-    width: 200px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: rgb(3, 23, 41);
-    background-color: rgb(144, 166, 199, 0.85);    
+.box {
+  font-family: $font-family;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: rgb(3, 23, 41);
+  background-color: rgb(144, 166, 199, 0.85);
+  margin-bottom: 5px;
+}
+
+#temperatureChart {
+  max-width: 800px;
+  max-height: 400px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(144, 166, 199, 0.85);
 }
