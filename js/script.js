@@ -17,13 +17,16 @@ function apiCall(city) {
     // Construire l'URL pour l'appel API avec la ville spécifiée
     let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}&lang=fr`;
 
+    // Récupérer le conteneur une seule fois en dehors de la boucle
+    let conteneurInfo = document.querySelector(".info_container");
+
+    // Vider le contenu existant du conteneur
+    conteneurInfo.innerHTML = "";
+
     // Effectuer la requête fetch vers l'API OpenWeatherMap
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // Afficher les données dans la console (à des fins de débogage)
-            console.log(data);
-
             // Créer un élément h2 pour afficher le nom de la ville
             let nomVille = document.createElement("h2");
             nomVille.innerHTML = `${city}`;
@@ -40,22 +43,15 @@ function apiCall(city) {
             ville.innerHTML = "";
             ville.appendChild(nomVille);
 
-            // Récupérer le conteneur une seule fois en dehors de la boucle
-            let conteneurInfo = document.querySelector(".info_container");
-
             // Définir le nombre de jours à afficher
             let joursAafficher = 5;
 
             // Boucle pour afficher les données pour chaque jour
+            let sommeTemperature = 0;
 
-
-            // Vider le contenu existant du conteneur
-            conteneurInfo.innerHTML = "";
-
-            // Boucle pour afficher les données pour chaque jour
             for (let j = 0; j < joursAafficher; j++) {
                 // Calculer l'indice correspondant à la journée actuelle
-                const i = j * 8;  // Utiliser j * 8 sans ajouter 1 pour obtenir des indices différents pour chaque jour
+                const i = j * 8;
 
                 // Créer un élément div pour afficher les informations de la journée
                 let jour = document.createElement("div");
@@ -64,11 +60,11 @@ function apiCall(city) {
                 // Remplir l'élément div avec les informations météorologiques
                 jour.innerHTML =
                     `   
-            <div id="date${j}" class="box"></div>
-            <div id="temp${j}" class="box"></div>
-            <div id="humidity${j}" class="box"></div>
-            <div id="wind${j}" class="box"></div>
-        `;
+                        <div id="date${j}" class="box"></div>
+                        <div id="temp${j}" class="box"></div>
+                        <div id="humidity${j}" class="box"></div>
+                        <div id="wind${j}" class="box"></div>
+                    `;
 
                 // Ajouter le jour au conteneur
                 conteneurInfo.appendChild(jour);
@@ -79,6 +75,19 @@ function apiCall(city) {
                 document.querySelector(`#temp${j}`).innerHTML = "<i class='fa-solid fa-temperature-empty'></i>" + data.list[i].main.temp + "°";
                 document.querySelector(`#humidity${j}`).innerHTML = "<i class='fa-solid fa-droplet'></i>" + data.list[i].main.humidity + "%";
                 document.querySelector(`#wind${j}`).innerHTML = "<i class='fa-solid fa-wind'></i>" + data.list[i].wind.speed + "km/h";
+
+                // Ajouter la température à la somme
+                sommeTemperature += data.list[i].main.temp;
+            }
+
+            // Calculer la moyenne des températures
+            const moyenneTemperature = sommeTemperature / joursAafficher;
+
+            // Changer le fond en fonction de la moyenne des températures
+            if (moyenneTemperature >= 0) {
+                document.body.style.backgroundImage = "url('assets/test1.jpg')"; // Remplacez 'background1.jpg' par le chemin de votre image
+            } else {
+                document.body.style.backgroundImage = "url('assets/test2.1.jpg')"; // Remplacez 'background2.jpg' par le chemin de votre image
             }
 
         })

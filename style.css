@@ -53,30 +53,34 @@ h1 {
   text-align: center;
   font-family: "Dancing Script", cursive;
   font-size: 500%;
-  color: rgb(144, 166, 199);
-  text-shadow: 5px 5px 6px #ffffff;
-  animation: animate 1.5s linear infinite;
+  color: #d95535;
+  text-shadow: 5px 5px 6px rgb(3, 23, 41);
+  animation: animate 3s linear infinite;
 }
 
 @keyframes animate {
   0% {
-    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0); /* Fully transparent */
+    text-shadow: 5px 5px 6px rgba(3, 23, 41, 0); /* Fully transparent */
   }
   50% {
-    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0.7); /* Semi-transparent */
+    text-shadow: 5px 5px 6px rgba(3, 23, 41, 0.7); /* Semi-transparent */
   }
   100% {
-    text-shadow: 5px 5px 6px rgba(255, 255, 255, 0); /* Fully transparent */
+    text-shadow: 5px 5px 6px rgba(3, 23, 41, 0); /* Fully transparent */
   }
 }
 .form_container {
+  color: rgb(3, 23, 41);
+  text-align: center;
+  padding-top: 10px;
+  max-width: 300px;
+  background-color: rgba(144, 166, 199, 0.85);
   font-family: "Dancing Script", cursive;
-  color: rgb(144, 166, 199);
   font-size: 200%;
+  border-radius: 15px;
 }
 
 button {
-  --color: #96a0bd;
   font-family: inherit;
   display: inline-block;
   width: 8em;
@@ -121,22 +125,21 @@ button:hover:before {
 }
 
 button:active:before {
-  background: #96a0bd;
+  background: #d95535;
   transition: background 0s;
 }
 
 body {
   margin-left: 50px;
-  background-image: url(assets/storm.png);
-  background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
 }
 
 h2 {
   font-family: "Dancing Script", cursive;
-  font-size: 400%;
-  color: aliceblue;
+  font-size: 600%;
+  color: rgb(3, 23, 41);
+  text-shadow: 5px 5px 6px #ffffff;
   text-align: center;
   margin-bottom: 50px;
 }
@@ -161,6 +164,5 @@ h2 {
   align-items: center;
   font-size: 1.5rem;
   color: rgb(3, 23, 41);
-  background-color: rgb(144, 166, 199);
-  opacity: 0.75;
+  background-color: rgba(144, 166, 199, 0.85);
 }/*# sourceMappingURL=style.css.map */
