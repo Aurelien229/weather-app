@@ -54,6 +54,13 @@ header {
   margin-bottom: 50px;
   gap: 50px;
 }
+@media (max-width: 475px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
 
 .logo {
   height: 150px;
@@ -62,11 +69,17 @@ header {
 }
 
 h1 {
-  text-align: center;
   font-family: "Dancing Script", cursive;
   font-size: 800%;
   color: rgb(3, 23, 41);
   text-shadow: 5px 5px 6px rgb(255, 255, 255);
+}
+
+@media (max-width: 475px) {
+  form {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .form_container {
@@ -79,8 +92,13 @@ h1 {
   font-size: 200%;
   border-radius: 15px;
 }
+@media (max-width: 475px) {
+  .form_container {
+    justify-content: center;
+  }
+}
 
-button {
+.form_btn {
   font-family: "Dancing Script", cursive;
   color: rgb(3, 23, 41);
   margin-top: 10px;
@@ -98,7 +116,7 @@ button {
   cursor: pointer;
 }
 
-button::after {
+.form_btn::after {
   content: "";
   position: absolute;
   top: -10px;
@@ -110,7 +128,7 @@ button::after {
   transform-origin: center;
 }
 
-button::before {
+.form_btn::before {
   content: "";
   transform-origin: center;
   position: absolute;
@@ -122,12 +140,12 @@ button::before {
   transition: 0.5s;
 }
 
-button:hover::before,
-button:hover::after {
+.form_btn:hover::before,
+.form_btn:hover::after {
   transform: scale(0);
 }
 
-button:hover {
+.form_btn:hover {
   box-shadow: inset 0px 0px 25px #1479EA;
 }
 
@@ -136,6 +154,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+}
+@media (max-width: 475px) {
+  body {
+    margin-left: 0;
+  }
 }
 
 h2 {
@@ -179,4 +202,10 @@ h2 {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: rgba(144, 166, 199, 0.85);
+}
+@media (max-width: 475px) {
+  #temperatureChart {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }/*# sourceMappingURL=style.css.map */
