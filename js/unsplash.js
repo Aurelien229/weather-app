@@ -3,7 +3,15 @@ const unsplashApiKey = "CH-JOMBQJgVhJiJ_ae0nY5r-eKERC_ySua7FidoxQgg";
 
 // Fonction pour récupérer une photo de la ville depuis l'API Unsplash
 export async function getCityPhoto(city) {
-    const unsplashUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${unsplashApiKey}`;
+    // Paramètres pour obtenir des images au format paysage, ajustées en size cover
+    const unsplashParams = {
+        orientation: 'landscape',
+        fit: 'crop',
+        w: 1200, // Largeur souhaitée
+        h: 800,  // Hauteur souhaitée
+    };
+
+    const unsplashUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${unsplashApiKey}&orientation=${unsplashParams.orientation}&fit=${unsplashParams.fit}&w=${unsplashParams.w}&h=${unsplashParams.h}`;
 
     try {
         const response = await fetch(unsplashUrl);
@@ -27,3 +35,4 @@ export async function getCityPhoto(city) {
         return null;
     }
 }
+
