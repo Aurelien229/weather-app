@@ -116,9 +116,9 @@ async function apiCall(city) {
 
         // Changer le fond en fonction de la moyenne des températures
         if (moyenneTemperature >= 0) {
-            document.body.style.backgroundImage = `url('assets/three.jpg')`;
+            document.body.style.backgroundImage = `url('assets/abstract2.jpg')`;
         } else {
-            document.body.style.backgroundImage = `url('assets/snow2.jpg')`;
+            document.body.style.backgroundImage = `url('assets/snow.jpg')`;
         }
 
     } catch (error) {
